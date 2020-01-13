@@ -25,6 +25,8 @@ public class MemberRecord implements Serializable {
 	private String maintenanceTypeCode;
 	@Label(value = "Task Complexity")
 	private Integer taskComplexity;
+	@Label(value = "Valid Record")
+	private Boolean isValid;
 
 	public MemberRecord() {
 	}
@@ -61,6 +63,14 @@ public class MemberRecord implements Serializable {
 		this.taskComplexity = taskComplexity;
 	}
 
+	public Boolean getIsValid() {
+		return this.isValid;
+	}
+
+	public void setIsValid(Boolean isValid) {
+		this.isValid = isValid;
+	}
+
 	@Override
 	public String toString() {
 		final ObjectMapper objectMapper = new ObjectMapper();
@@ -75,11 +85,13 @@ public class MemberRecord implements Serializable {
 
 	public MemberRecord(Integer id, Date dateOfBirth,
 			String maintenanceTypeCode,
-			Integer taskComplexity) {
+			Integer taskComplexity,
+			Boolean isValid) {
 		this.id = id;
 		this.dateOfBirth = dateOfBirth;
 		this.maintenanceTypeCode = maintenanceTypeCode;
 		this.taskComplexity = taskComplexity;
+		this.isValid = isValid;
 	}
 
 }
